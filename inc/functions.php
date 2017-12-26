@@ -45,40 +45,40 @@ busca los scripts necesarios y los inserta a continuación
 */
 function get_footer_scripts ($modulo) { ?>
 
-	<script src="assets/js/jquery-ui.min.js"></script>
+	<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/jquery-ui.min.js"></script>
 	<!------- admin scripts ------>
-	<script src="assets/js/admin-script.js"></script>
+	<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/admin-script.js"></script>
 	<!------- scripts modulos ------>
 	<?php 
 	switch ( $modulo ) {
 		case 'noticias':
 		case 'editar-noticias': ?>
-			<script src="<?php echo MAINURL; ?>/administrador/assets/lib/tinymce/tinymce.min.js"></script>
-			<script src="<?php echo MAINURL; ?>/administrador/assets/js/modulo-noticias.js"></script>
-			<script src="<?php echo MAINURL; ?>/administrador/assets/js/modulo-medios.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>assets/lib/tinymce/tinymce.min.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-noticias.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
 			
 			<?php break;
 		
 		case 'biblioteca-medios': ?>
-			<script src="<?php echo MAINURL; ?>/administrador/assets/js/modulo-medios.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
 			<?php break;
 		
 		case 'sliders' :
 		case 'editar-slider' : ?>
-			<script src="<?php echo MAINURL; ?>/administrador/assets/js/modulo-medios.js"></script>
-			<script src="<?php echo MAINURL; ?>/administrador/assets/js/modulo-sliders.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-sliders.js"></script>
 			<?php break;
 
 		case 'promociones' : ?>
-			<script src="<?php echo MAINURL; ?>/administrador/assets/js/modulo-medios.js"></script>
-			<script src="<?php echo MAINURL; ?>/administrador/assets/js/modulo-promociones.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-promociones.js"></script>
 			<?php break;
 		
 		default: ?>
-			<script src="<?php echo MAINURL; ?>/administrador/assets/lib/tinymce/tinymce.min.js"></script>
-			<script src="<?php echo MAINURL; ?>/administrador/assets/js/modulo-noticias.js"></script>
-			<script src="<?php echo MAINURL; ?>/administrador/assets/js/modulo-medios.js"></script>
-			<script src="<?php echo MAINURL; ?>/administrador/assets/js/modulo-sliders.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/administrador/assets/lib/tinymce/tinymce.min.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/administrador/assets/js/modulo-noticias.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/administrador/assets/js/modulo-medios.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/administrador/assets/js/modulo-sliders.js"></script>
 			<?php break;
 	}
 	?>

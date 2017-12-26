@@ -12,6 +12,9 @@ Además, permite manejar cargar y subir imagenes y archivos y manejar sliders.
 
 ## Versiones
 
+* 5.0.2 - 26/12/17  
+-agregué url de administrador, para que los scripts se coloquen en la carpeta adecuada y no tener que cambiar todos los urls cada vez.
+
 * 5.0.1 - 12/11/17  
 -Corregido en modulo-noticias función backend de ajax para que cargue bien el null en la base de datos en la fecha de agenda
 -Corregido el js para que al publicar una noticia nueva el administrador recargue la página con el url nuevo y te muestra ya el botón de que ya está publicado

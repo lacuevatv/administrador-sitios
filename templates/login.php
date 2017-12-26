@@ -6,9 +6,9 @@
 	<title>Iniciar sesión</title>
 
 <!-- jQquery UI css -->
-  <link href="<?php echo MAINURL; ?>/administrador/assets/css/jquery-ui.min.css" rel="stylesheet">
+  <link href="<?php echo URLADMINISTRADOR; ?>/assets/css/jquery-ui.min.css" rel="stylesheet">
 <!-- Custom CSS -->
-  <link href="<?php echo MAINURL; ?>/administrador/assets/css/style-admin.css" rel="stylesheet">
+  <link href="<?php echo URLADMINISTRADOR; ?>/assets/css/style-admin.css" rel="stylesheet">
 
 </head>
 <body>
@@ -41,7 +41,7 @@
 <!------- // fin contenido ------>
 <!------- scripts ------>
 <!------- jquery 3.1.1 ------>
-	<script src="<?php echo MAINURL; ?>/administrador/assets/js/jquery-3.1.1.min.js"></script>
-	<script src="<?php echo MAINURL; ?>/administrador/assets/js/admin-script.js"></script>
+	<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/jquery-3.1.1.min.js"></script>
+	<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/admin-script.js"></script>
 </body>
 </html>
