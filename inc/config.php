@@ -3,7 +3,7 @@
 define('DB_SERVER', 'localhost');
 define('DB_USER', 'dbuser');
 define('DB_PASS', '123');
-define('DB_NAME', 'test');
+define('DB_NAME', 'mvl_bd');
 //CARPETAS
 define ( 'TEMPLATEDIR', dirname( __FILE__ ) . '/../templates' );
 define ( 'MODULOSDIR', dirname( __FILE__ ) . '/modulos' );
@@ -11,12 +11,12 @@ define ( 'UPLOADS', dirname( __FILE__ ) . '/../../contenido' );
 define ( 'UPLOADSIMAGES', dirname( __FILE__ ) . '/../../contenido' );
 define ( 'UPLOADSFILES', dirname( __FILE__ ) . '/../../contenido/archivos' );
 //URL
-define ('CARPETASERVIDOR', '/voces-de-sanidad' );//esta variable se define si el sitio no está en el root del dominio y si está en una subcarpeta
+define ('CARPETASERVIDOR', '' );//esta variable se define si el sitio no está en el root del dominio y si está en una subcarpeta
 define ('MAINURL', 'http://' . $_SERVER['HTTP_HOST'] . CARPETASERVIDOR );
-define ('URLADMINISTRADOR', MAINURL . '/cargar-noticias/administrador-sitios' );
-define ('UPLOADSURL', MAINURL . '/contenido');
-define ('UPLOADSURLIMAGES', MAINURL . '/contenido');
-define ('UPLOADSURLFILES', MAINURL . '/contenido/archivos');
+define ('URLADMINISTRADOR', MAINURL . '/admin' );//esta variable define la carpeta del administrador - también debe cambianser en el .js
+define ('UPLOADSURL', MAINURL . '/contenido');//carpeta donde esta el contenido subido por el usuario
+define ('UPLOADSURLIMAGES', UPLOADSURL . '');//carpeta  de imagenes (por si tiene distintas carpetas de contenido)
+define ('UPLOADSURLFILES', UPLOADSURL . '');//carpeta de archivos (por si tiene distintas carpetas de contenido)
 
 //DEFINICIONES HEAD Y SCRIPTS
 define ( 'SITENAME', 'titulo' );
@@ -26,7 +26,7 @@ define ( 'SITETITLE', 'Nombre - Panel de control' );
 define ( 'FAVICONICO', URLADMINISTRADOR . '/favicon.ico' );
 
 //variables de definicion de administrador
-global $categorias;
+global $categorias;//define las categorias para cargar noticias
 $categorias = array(
 	array( 'slug' => 'agenda', 'nombre' => 'Agenda'),
 	array( 'slug' => 'tramites', 'nombre' => 'Trámites y Servicios'),

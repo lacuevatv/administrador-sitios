@@ -12,9 +12,12 @@ require_once('config.php');
 */
 
 //busca el template $name = nombre del archivo sin extensión
-function getTemplate ($name ) {
+function getTemplate ($name, $data = array() ) {
 
-	include TEMPLATEDIR . '/'. $name. '.php';
+	$namePage = TEMPLATEDIR . '/'. $name. '.php';
+	if (is_file($namePage)) {
+		include $namePage;
+	}
 }
 
 

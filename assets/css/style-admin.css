@@ -200,9 +200,12 @@ h3 {
 /*GRILLA*/
 .container {
   width: 100%;
-  max-width: 992px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 0 10px; }
+  @media (min-width: 992px) {
+    .container {
+      padding: 0 5%; } }
 
 .row {
   display: block; }
@@ -405,7 +408,7 @@ footer {
     .menus-top-wrapper {
       border-top: none;
       position: static;
-      width: 75%;
+      width: 80%;
       display: flex;
       display: -o-flex;
       display: -ms-flex;
@@ -443,23 +446,23 @@ footer {
       -ms-align-items: center;
       -o-align-items: center;
       align-items: center;
-      -webkit-justify-content: space-around;
-      -moz-justify-content: space-around;
-      -ms-justify-content: space-around;
-      -o-justify-content: space-around;
-      justify-content: space-around;
+      -webkit-justify-content: flex-end;
+      -moz-justify-content: flex-end;
+      -ms-justify-content: flex-end;
+      -o-justify-content: flex-end;
+      justify-content: flex-end;
       text-align: left; }
       .menu-top li {
         margin: 0 5%;
         text-transform: uppercase; }
         .menu-top li > a {
-          padding: 10px 5px; }
+          padding: 10px 2px; }
           .menu-top li > a:hover {
             filter: alpha(opacity=70);
             opacity: 0.7; } }
   @media (min-width: 992px) {
     .menu-top.menu-left {
-      width: 65%; } }
+      width: 100%; } }
   @media (min-width: 992px) {
     .menu-top.menu-right {
       width: 30%;
@@ -671,6 +674,18 @@ ul.dropdown-menu {
   border-top: 1px solid #333;
   background-color: transparent; }
 
+.titulo-modulo {
+  font-size: 150%;
+  line-height: 150%;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: 1px solid #eee; }
+  @media (min-width: 992px) {
+    .titulo-modulo {
+      font-size: 250%;
+      line-height: 200%; } }
+
 .load-ajax {
   position: absolute;
   width: 100%;
@@ -680,6 +695,28 @@ ul.dropdown-menu {
   background-size: 20%;
   right: 0;
   top: 0; }
+
+.popup-url-input {
+  width: 40px;
+  display: inline-block;
+  vertical-align: top; }
+
+.popup-url-label {
+  font-size: 120%;
+  line-height: 120%;
+  text-transform: uppercase;
+  margin: 10px 10px 10px 0px !important;
+  display: inline-block; }
+
+.img-wrapper {
+  padding: 10px;
+  border: 1px solid #666;
+  margin: 10px 0px; }
+
+.sliders-wrapper li {
+  border-bottom: 1px solid #eee; }
+  .sliders-wrapper li:last-child {
+    border-bottom: none; }
 
 /* ---- 7 seccion noticias ---- */
 .loop-noticias-backend {

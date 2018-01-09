@@ -1,4 +1,5 @@
 <?php
+global $userStatus;
 //chequea que no se acceda directo
 if(!defined("SECUREACCESS"))
 {
@@ -69,18 +70,29 @@ if(!defined("SECUREACCESS"))
                 </li>
               </ul>
             </li>
+          <?php if ($userStatus == 0) : ?>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opciones<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="index.php?admin=change-password" role="button">Cambiar contraseña</a></li>
                 <li><a href="index.php?admin=nuevo-usuario" role="button">Registrar nuevo usuario</a></li>
               </ul>
             </li>
+          <?php endif; ?>
+          <li><a href="../" target="_blank">Ver página</a></li>
           </ul>
           <!--RIGHT MENU-->
           <ul class="menu-top menu-right">
-            <li><a href="../" target="_blank">Ver página</a></li>
-            <li><a id="logout" href="#">Salir</a></li>
+            <li class="dropdown">
+            <?php if ( isset($_SESSION['nombre']) && $_SESSION['nombre'] != '' ) : ?>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['nombre']; ?><span class="caret"></span></a>
+            <?php else : ?>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuario<span class="caret"></span></a>
+            <?php endif; ?>
+              <ul class="dropdown-menu">
+                <li><a id="logout" href="#">Salir</a></li>
+              </ul>
+            </li>
           </ul>
         </div><!--/.menu-top -->
       </div><!--/.container -->
@@ -89,8 +101,10 @@ if(!defined("SECUREACCESS"))
 <!-- main contenido -->
 <main role="main" class="main">
 
-<div class="container titulo-gral-admin">
-  <h1>
-    Panel de control
-  </h1>
-</div>
+<?php if ( $modulo == '') : ?>
+  <div class="container titulo-gral-admin">
+    <h1>
+      <?php echo SITENAME; ?>
+    </h1>
+  </div>
+<?php endif; ?>
