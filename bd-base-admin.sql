@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-11-2017 a las 09:55:54
--- Versión del servidor: 5.7.19-0ubuntu0.16.04.1
--- Versión de PHP: 5.6.31-6+ubuntu16.04.1+deb.sury.org+1
+-- Tiempo de generación: 10-01-2018 a las 10:36:35
+-- Versión del servidor: 5.7.20-0ubuntu0.16.04.1
+-- Versión de PHP: 5.6.32-1+ubuntu16.04.1+deb.sury.org+2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `administrador-estructura`
+-- Base de datos: `base`
 --
 
 -- --------------------------------------------------------
@@ -110,7 +110,7 @@ CREATE TABLE `usuarios` (
   `user_usuario` varchar(50) NOT NULL,
   `user_password` varchar(250) NOT NULL,
   `user_nombre` varchar(100) NOT NULL,
-  `user_status` int(10) NOT NULL DEFAULT '0'
+  `user_status` varchar(100) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -118,7 +118,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`user_id`, `user_usuario`, `user_password`, `user_nombre`, `user_status`) VALUES
-(0, 'coco@lacueva.tv', '$2y$10$FPGfZ6q0KX96/66Cz9XgVuP.wXHYzMMiBkeHJXgHz0pfhEz2vd/ym', 'coco', 0);
+(0, 'coco@lacueva.tv', '$2y$10$FPGfZ6q0KX96/66Cz9XgVuP.wXHYzMMiBkeHJXgHz0pfhEz2vd/ym', 'coco', '0');
 
 --
 -- Índices para tablas volcadas
