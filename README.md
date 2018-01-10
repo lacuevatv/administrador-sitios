@@ -12,10 +12,8 @@ Además, permite manejar cargar y subir imagenes y archivos y manejar sliders.
 
 ## Versiones
 
-///////////////CAMBIAR BASE DE DATOS STANDARD EN LA TABLA USUARIOS PARA QUE TOME BIEN LOS STATUS
-
-* 6.0.0 - 08/01/19
-- agregue gestión de usuarios con 3 distintos: Status 0: Administrador-gral Status 1: Editor, tiene acceso a todos los módulos, pero no puede administrar usuarios ni cambiar contraseñas Status letras, indican el modulo al que puede acceder   
+* 6.0.0 - 10/01/19
+- agregue gestión de usuarios con 3 distintos: Status 0: Administrador-gral Status 1: Editor, tiene acceso a todos los módulos, pero no puede administrar usuarios ni cambiar contraseñas Status letras, indican el modulo al que puede acceder, por default es solo noticias   
 
 * 5.0.2 - 26/12/17  
 -agregué url de administrador, para que los scripts se coloquen en la carpeta adecuada y no tener que cambiar todos los urls cada vez.
