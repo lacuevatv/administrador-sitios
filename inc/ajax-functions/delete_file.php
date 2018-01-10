@@ -18,7 +18,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 	       		echo 'error de borrado';
 	       }
 	
-	var_dump($_POST);
+	
 } else{
 	//sino es peticion ajax
     throw new Exception("Error Processing Request", 1);   

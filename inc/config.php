@@ -25,6 +25,13 @@ define ('LOGOSITE' , URLADMINISTRADOR . '/assets/images/logosite.png');
 define ( 'SITETITLE', 'Nombre - Panel de control' );
 define ( 'FAVICONICO', URLADMINISTRADOR . '/favicon.ico' );
 
+//variables tipo de usuario
+global $usertype;
+$usertype = array(
+	array( 'status' => 'a', 'nombre' => 'default'),
+	array( 'status' => '0', 'nombre' => 'Administrador'),
+	array( 'status' => '1', 'nombre' => 'Editor'),
+);
 //variables de definicion de administrador
 global $categorias;//define las categorias para cargar noticias
 $categorias = array(

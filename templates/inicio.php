@@ -1,7 +1,6 @@
 <!---------- ACCESOS DIRECTOS A LOS MODULOS ---------------->
-<div class="container">
+<div class="container wrapper-modulos">
   <div class="row">
-
     <div class="col-30">
       <!-- modulo -->
       <section>
