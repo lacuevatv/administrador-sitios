@@ -10,7 +10,7 @@ if ( isAjax() ) {
 
 	//se toman los datos para variables
 	$connection          = connectDB();
-	$tabla               = 'noticias';
+	$tabla               = 'posts';
 	$user                = $_SESSION['user_id'];
 	$postID              = isset( $_POST['post_ID'] ) ? $_POST['post_ID'] : '';
 	$newPost             = isset( $_POST['new_post'] ) ? $_POST['new_post'] : '';
@@ -25,14 +25,7 @@ if ( isAjax() ) {
 	$postVideo           = isset( $_POST['post_video'] ) ? $_POST['post_video'] : 'none';
 	$postGaleria         = isset( $_POST['post_galeria'] ) ? $_POST['post_galeria'] : '0';//si es true hay que pasarlo a 1 para que se guarde correctamente
 	$imgGaleria          = isset( $_POST['imgGaleria'] ) ? $_POST['imgGaleria'] : '';
-	$linkExterno         = isset( $_POST['post_link_externo'] ) ? $_POST['post_link_externo'] : '';
-	$fechaAgenda         = isset( $_POST['post_fecha_agenda'] ) ? $_POST['post_fecha_agenda'] : 'none';
 
-	if ( $fechaAgenda == '2015-02-21' || $fechaAgenda == '' || $fechaAgenda == '0000-00-00' ) {
-		$fechaAgenda = 'NULL';
-	} else {
-		$fechaAgenda = "'".$fechaAgenda."'";//le agrego las comillas a mano para no tener problemas luego en el query con el null del mysql
-	}
 
     //saneamiento
 	$postResumen         = mysqli_real_escape_string($connection, $postResumen);
@@ -76,7 +69,7 @@ if ( isAjax() ) {
 			exit;
 		}
 
-		$query = "INSERT INTO $tabla (post_autor,post_fecha,post_titulo,post_url,post_contenido,post_resumen,post_imagen,post_video,post_categoria,post_galeria,post_imagenesGal,post_link_externo,post_fecha_agenda,post_status) VALUES ('$user', '$postDate', '$postTitulo', '$postUrl', '$postContenido', '$postResumen', '$postImagen', '$postVideo', '$postCategoria', '$postGaleria', '$imagenesGaleria', '$linkExterno', $fechaAgenda, '$postStatus')";
+		$query = "INSERT INTO $tabla (post_autor,post_fecha,post_titulo,post_url,post_contenido,post_resumen,post_imagen,post_video,post_categoria,post_galeria,post_imagenesGal,post_status) VALUES ('$user', '$postDate', '$postTitulo', '$postUrl', '$postContenido', '$postResumen', '$postImagen', '$postVideo', '$postCategoria', '$postGaleria', '$imagenesGaleria', '$postStatus')";
 
 		$nuevoPost = mysqli_query($connection, $query); 
 		$postID = mysqli_insert_id($connection);
@@ -86,7 +79,7 @@ if ( isAjax() ) {
 	} //es viejo post
 		else {
 
-		$query = "UPDATE ".$tabla." SET post_autor='".$user."',post_fecha='".$postDate."', post_titulo='".$postTitulo."',post_url='".$postUrl."',post_contenido='".$postContenido."',post_resumen='".$postResumen."',post_imagen='".$postImagen."',post_video='".$postVideo."',post_categoria='".$postCategoria."',post_galeria='".$postGaleria."',post_imagenesGal='".$imagenesGaleria."',post_link_externo='".$linkExterno."',post_fecha_agenda=".$fechaAgenda.", post_status='".$postStatus."' WHERE post_ID='".$postID."' LIMIT 1";
+		$query = "UPDATE ".$tabla." SET post_autor='".$user."',post_fecha='".$postDate."', post_titulo='".$postTitulo."',post_url='".$postUrl."',post_contenido='".$postContenido."',post_resumen='".$postResumen."',post_imagen='".$postImagen."',post_video='".$postVideo."',post_categoria='".$postCategoria."',post_galeria='".$postGaleria."',post_imagenesGal='".$imagenesGaleria."', post_status='".$postStatus."' WHERE post_ID='".$postID."' LIMIT 1";
 
 		$updatePost = mysqli_query($connection, $query); 
 		

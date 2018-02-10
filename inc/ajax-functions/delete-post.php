@@ -8,7 +8,7 @@ require_once('../functions.php');
 if ( isAjax() ) {
 
 $connection     = connectDB();
-$tablaNoticias  = 'noticias';
+$tablaNoticias  = 'posts';
 $postUrl        = isset( $_POST['post_url'] ) ? $_POST['post_url'] : 'none';
 
 //buscamos id y etiquetas antes de borrar:

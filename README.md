@@ -12,7 +12,10 @@ Además, permite manejar cargar y subir imagenes y archivos y manejar sliders.
 
 ## Versiones
 
-* 6.0.0 - 10/01/19
+* 6.1.0 - 10/02/18  
+- cambié el nombre de la table 'noticias' por 'posts' así luego puedo incluir paginas  
+
+* 6.0.0 - 10/01/18
 - agregue gestión de usuarios con 3 distintos: Status 0: Administrador-gral Status 1: Editor, tiene acceso a todos los módulos, pero no puede administrar usuarios ni cambiar contraseñas Status letras, indican el modulo al que puede acceder, por default es solo noticias   
 
 * 5.0.2 - 26/12/17  

@@ -8,7 +8,7 @@
 require '../functions.php';
 $noticiasPorPagina = 10;
 $connection = connectDB();
-$tabla = 'noticias';
+$tabla = 'posts';
 $pageActual = isset( $_POST['page'] ) ? intval( $_POST['page'] ) : 2;
 $categoria = isset( $_POST['categoria'] ) ? $_POST['categoria'] : 'none';
 

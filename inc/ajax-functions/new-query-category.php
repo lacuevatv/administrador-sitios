@@ -8,7 +8,7 @@
 require_once('../functions.php');
 $noticiasPorPagina = 10;
 $connection = connectDB();
-$tabla = 'noticias';
+$tabla = 'posts';
 $categoria = isset( $_POST['categoria'] ) ? $_POST['categoria'] : 'none';
 	$query  = "SELECT *  FROM " .$tabla. " WHERE post_categoria='".$categoria."' ORDER by post_fecha desc LIMIT ".$noticiasPorPagina." ";	
 

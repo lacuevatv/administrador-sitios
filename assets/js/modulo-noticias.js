@@ -243,10 +243,6 @@ $(document).ready(function(){
 			var newURL = getCleanedString(url);
 			urlTag.val(newURL);
 		}
-		//la fecha de agenda no puede estar vacía:
-		if ( $('#post_fecha_agenda').val() == '' ) {
-			$('#post_fecha_agenda').val('2015-02-21');
-		}
 
 		//ver que boton se hace clic para cambiar el estado
 		var name = $(this).attr('name');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-02-2018 a las 13:16:42
+-- Tiempo de generación: 10-02-2018 a las 13:25:55
 -- Versión del servidor: 5.7.21-0ubuntu0.16.04.1
 -- Versión de PHP: 5.6.33-3+ubuntu16.04.1+deb.sury.org+1
 
@@ -81,6 +81,13 @@ CREATE TABLE `posts` (
   `post_type` varchar(100) NOT NULL DEFAULT 'post',
   `post_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `posts`
+--
+
+INSERT INTO `posts` (`post_ID`, `post_autor`, `post_fecha`, `post_titulo`, `post_url`, `post_contenido`, `post_resumen`, `post_imagen`, `post_video`, `post_categoria`, `post_galeria`, `post_imagenesGal`, `post_status`, `post_type`, `post_timestamp`) VALUES
+(1, 0, '2018-02-10', 'noticia ejemplo', 'noticia-ejemplo', '', '', '', '', 'noticias', '0', '', 'publicado', 'post', '2018-02-10 13:25:11');
 
 -- --------------------------------------------------------
 
@@ -174,7 +181,7 @@ ALTER TABLE `options`
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_ID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `post_ID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `sliders`
 --

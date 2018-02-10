@@ -8,7 +8,7 @@ require_once('../functions.php');
 if ( isAjax() ) {
 
 $connection = connectDB();
-$tabla      = 'noticias';
+$tabla      = 'posts';
 $postUrl    = isset( $_POST['post_url'] ) ? $_POST['post_url'] : 'none';
 
 $query      = "UPDATE ".$tabla." SET post_status='publicado' WHERE post_url='".$postUrl."' LIMIT 1";;
