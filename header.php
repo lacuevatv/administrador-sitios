@@ -129,7 +129,14 @@ if(!defined("SECUREACCESS"))
       </div>
       <div class="col-20">
         <h5 class="fecha-hoy">
-          2 de octubre de <strong>2018</strong>
+          <?php 
+          $meses = array('Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
+          $year = date("Y");
+          $fecha = date("Y-m-d");
+          
+          echo date("j", strtotime($fecha))  .' de '. $meses[date("n", strtotime($fecha))-1] . ' de ';
+          ?>
+          <strong><?php echo $year; ?></strong>
         </h5>
       </div>
     </div>
