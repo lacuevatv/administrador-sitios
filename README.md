@@ -12,6 +12,11 @@ Además, permite manejar cargar y subir imagenes y archivos y manejar sliders.
 
 ## Versiones
 
+* 6.2.0 - 22/05/18  
+- agregue el modulo de galeria de imágenes, lista categorias que están en el archivo config
+- agregue el modulo de descarga de archivos, lista categorias que están en el archivo config
+- hice el template de info-adicional que serviría para redes, teléfono, direcciones, etc, pero todavía no tiene conexión con la base de datos
+
 * 6.1.0 - 10/02/18  
 - cambié el nombre de la table 'noticias' por 'posts' así luego puedo incluir paginas  
 
