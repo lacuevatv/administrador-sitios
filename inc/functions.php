@@ -62,10 +62,20 @@ function get_footer_scripts ($modulo) { ?>
 			
 			<?php break;
 		
+		case 'galeria-imagenes': ?>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
+			<?php break;
+
 		case 'biblioteca-medios': ?>
 			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
 			<?php break;
 		
+		case 'archivos-descargas' :
+		case 'info-adicional': ?>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
+			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-otros-opciones.js"></script>
+			<?php break;
+
 		case 'sliders' :
 		case 'editar-slider' : ?>
 			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>

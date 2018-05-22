@@ -3,10 +3,16 @@
 IMPRIME LA GALERÍA DE MEDIOS POR FILE TYPE: ARCHIVOS O IMAGENES
 EL SEGUNDO PARAMETRO HABILITA LOS CONTROLES, EN LA BIBLIOTECA LOS MUESTRA, PARA ORDENAR O BORRAR, PERO CUANDO SE ABRE COMO DIÁLOGO NO MUESTRA ESAS OPCIONES
 */
-function printImagesGalery( $file_type, $controls = false ) {
+function printImagesGalery( $file_type, $controls = false, $post_type = 'all') {
 	$connection = connectDB();
 	$tabla      = 'medios';
-	$query      = "SELECT * FROM " .$tabla. " WHERE medio_tipo= '" .$file_type. "' ORDER by medio_orden asc ";
+	$query      = "SELECT * FROM " .$tabla. " WHERE medio_tipo= '" .$file_type. "'";
+	
+	if ( $post_type != 'all' ) {
+		$query      .= " AND medio_post_type= '" .$post_type. "' ";
+	}
+
+	$query      .= "ORDER by medio_orden asc ";
 	$result     = mysqli_query($connection, $query);
 	
 	$directorio = UPLOADSURLIMAGES;
@@ -16,7 +22,7 @@ function printImagesGalery( $file_type, $controls = false ) {
 
 	if ( $result->num_rows == 0 ) {
 	  
-	  echo '<div class="error-tag">No hay imagenes cargadas.</div>';
+	  echo '<div class="error-tag">No hay medios cargados.</div>';
 	} else {
 		while ($row = $result->fetch_array()) {
 			$rows[] = $row;

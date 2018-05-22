@@ -169,6 +169,15 @@ $(document).ready(function(){
 
 
 /*
+ * EN LA GALERIA CAMBIA EL POST TYPE
+*/
+
+$('.click_posttype').click(function  (){
+	$('.post-type-categoria').val( $(this).attr('href').substr(1) );
+	
+});
+
+/*
 * UPLOAD IMAGE
 * Esta función también se usa en el mini modulo-medio
 */
@@ -181,9 +190,14 @@ $(document).ready(function(){
 		var imgAjax = $( '.load-ajax' );
 		var formData = new FormData( formulario[0] );
 		var postType = '';
+		if ( $('.post-type-categoria').val() != '' ) {
+			postType = $('.post-type-categoria').val();
+		}
 		var url = ajaxFunctionDir + '/upload-medios.php';
+		formData.append('post_type', postType);
+
 		//si se carga desde promociones el post type es promo
-		if ( location.search.split("=")[1] == 'promociones' ) {
+		/*if ( location.search.split("=")[1] == 'promociones' ) {
 			postType = 'promo';
 			formData.append('post_type', postType);
 		}
@@ -191,8 +205,8 @@ $(document).ready(function(){
 		if ( location.search.split("=")[1].split("&")[0] == 'editar-slider' ) {
 			postType = 'slider';
 			formData.append('post_type', postType);
-		}
-
+		}*/
+		
 		$.ajax( {
 			type: 'POST',
 			url: url,
@@ -205,7 +219,7 @@ $(document).ready(function(){
 		    	$( '.load-ajax' ).fadeIn();
 		    },
 			success: function ( response ) {
-				//console.log(response);
+				console.log(response);
 				$( '.load-ajax' ).fadeOut();
 
 				//si nos devuelve el error lo pasamos al usuario
@@ -227,7 +241,7 @@ $(document).ready(function(){
 						}
 					}
 					//si estan en la biblioteca de medios, al terminar de subir se vuelve a cargar la pagina
-					if ( location.search.split("=")[1] == 'biblioteca-medios' ) {
+					if ( ( location.search.split("=")[1] == 'biblioteca-medios' ) || (location.search.split("=")[1] == 'galeria-imagenes') ) {
 						location.reload();
 					}
 				}	

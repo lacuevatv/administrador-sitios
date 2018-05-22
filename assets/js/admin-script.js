@@ -17,7 +17,7 @@
 
 //urls:
 var baseUrl = 'http://' + window.location.host;
-var administradorUrl = baseUrl + '/administrador';
+var administradorUrl = baseUrl + '/administrador-sitios';
 var uploadsDir = baseUrl + '/contenido';
 var functionsDir = administradorUrl + '/inc';
 var templatesDir = administradorUrl + '/templates';

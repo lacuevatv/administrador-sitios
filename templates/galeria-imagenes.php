@@ -6,41 +6,42 @@ if ($userStatus != '0' && $userStatus != '1' ) {
   	exit;
 }
 load_module( 'medios' );
+
+global $categoriasGalerias;
+
 ?>
 <!-- wrapper interno modulo -->
 <div class="contenido-modulo">
 	<h1 class="titulo-modulo">
-		Biblioteca de Medios
+		Galería de imágenes
 	</h1>
 	<div class="container">
 		<div class="row">
 	
 	<!-- BIBLIOTECA -->
 			<div class="col-70">
+                <input class="post-type-categoria" type="hidden" name="post_type" value="<?php echo $categoriasGalerias[0]['slug']; ?>">
 				<div id="tabs">
 					<ul>
-					    <li><a href="#imagenes">Biblioteca imágenes</a></li>
-					    <li><a href="#archivos">Biblioteca archivo</a></li>
-					  </ul>
+                    <?php 
+                    for ($i=0; $i < count($categoriasGalerias); $i++) { ?>
+                        <li><a class="click_posttype" href="#<?php echo $categoriasGalerias[$i]['slug']; ?>"><?php echo $categoriasGalerias[$i]['nombre']; ?></a></li>
+                    <?php }//for ?>
+					</ul>
 				
 					<!-- wrapper galeria -->
-					<div id="imagenes" class="wrapper-galeria">
-						<div class="container">
-							<h2>Biblioteca de imágenes</h2>
-								
-							<?php printImagesGalery( 'imagen', $controls = true ); ?>
-
-						</div>
-					</div>
+                    <?php 
+                    for ($i=0; $i < count($categoriasGalerias); $i++) { 
+                        $postType = $categoriasGalerias[$i]['slug'];
+                        ?>
+                        <div id="<?php echo $categoriasGalerias[$i]['slug']; ?>" class="wrapper-galeria">
+                            <div class="container">
+                                <h2><?php echo $categoriasGalerias[$i]['nombre']; ?></h2>
+                                <?php printImagesGalery( 'imagen', $controls = true,  $postType ); ?>
+                            </div>
+                        </div>
+                    <?php }//for ?>
 					
-					<div id="archivos" class="wrapper-galeria">
-						<div class="container">
-							<h2>Biblioteca de archivos</h2>
-								
-							<?php printImagesGalery( 'archivo', $controls = true ); ?>
-
-						</div>
-					</div>
 				</div>
 			</div><!-- // col -->
 			
@@ -92,7 +93,6 @@ load_module( 'medios' );
 <!-- botones del modulo -->
 <footer class="footer-modulo container">
     <a type="button" href="index.php" class="btn">Volver al inicio</a>
-    <a type="button" href="index.php?admin=noticias" class="btn">Ver noticias</a>
 </footer>
 
 <script type="text/javascript" language="javascript">

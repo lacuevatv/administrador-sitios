@@ -13,8 +13,7 @@ require_once('../modulos/modulo-medios.php');
 
 //chequea si es peticion de ajax y ejecuta la funcion
 if( isAjax() ) {
-
- 	
+	
 	//variables principales
 	$directorioFiles  = UPLOADSFILES;
 	$directorioImages = UPLOADSIMAGES;

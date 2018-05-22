@@ -128,3 +128,43 @@
 
 }
 
+.otras-opciones {
+  margin-bottom: 5%;
+  li {
+    margin: 1em 0;
+  }
+  .type-text {
+    label{
+      line-height: 150%;
+      text-transform: capitalize;
+    }
+    input {
+       height: 25px;
+     }
+  }
+  .type-file {
+    a {
+      font-size: 90%;
+      text-decoration: underline;
+
+      &:hover {
+        font-style: italic;
+      }
+    }
+  }
+
+  .btn-change-file-opciones, .btn-new-file-opciones {
+    cursor: pointer;
+    font-style: italic;
+    color: $resaltado;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .btn-del-file-opciones {
+    font-size: 80%;
+    cursor: pointer;
+    color: $danger;
+  }
+}

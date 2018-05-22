@@ -64,13 +64,22 @@ if(!defined("SECUREACCESS"))
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrar Página<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="index.php?admin=biblioteca-medios" role="button">Medios</a>
+                  <a href="index.php?admin=archivos-descargas" role="button">Archivos para descargar</a>
+                </li>
+                <li>
+                  <a href="index.php?admin=info-adicional" role="button">Info Adicional</a>
+                </li>
+                <li>
+                  <a href="index.php?admin=galeria-imagenes" role="button">Galerías de imágenes</a>
                 </li>
                 <li>
                   <a href="index.php?admin=promociones" role="button">promociones</a>
                 </li>
                 <li>
                   <a href="index.php?admin=editar-slider&slug=home" role="button">Slider Inicio</a>
+                </li>
+                <li>
+                  <a href="index.php?admin=biblioteca-medios" role="button">Medios</a>
                 </li>
               </ul>
             </li>
