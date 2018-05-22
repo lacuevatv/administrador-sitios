@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-02-2018 a las 13:16:42
--- Versión del servidor: 5.7.21-0ubuntu0.16.04.1
--- Versión de PHP: 5.6.33-3+ubuntu16.04.1+deb.sury.org+1
+-- Tiempo de generación: 22-05-2018 a las 12:29:46
+-- Versión del servidor: 5.6.30
+-- Versión de PHP: 5.6.36-1+ubuntu16.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `troops_bd`
+-- Base de datos: `administrador`
 --
 
 -- --------------------------------------------------------
@@ -46,7 +46,7 @@ CREATE TABLE `medios` (
 CREATE TABLE `options` (
   `OPTIONS_ID` int(10) NOT NULL,
   `options_name` varchar(250) NOT NULL DEFAULT '',
-  `options_value` varchar(250) NOT NULL DEFAULT '',
+  `options_value` text NOT NULL,
   `options_note` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
