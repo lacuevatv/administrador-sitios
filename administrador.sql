@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-05-2018 a las 12:29:46
+-- Tiempo de generación: 23-05-2018 a las 13:28:03
 -- Versión del servidor: 5.6.30
 -- Versión de PHP: 5.6.36-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -21,6 +21,24 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `administrador`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `contacto`
+--
+
+CREATE TABLE `contacto` (
+  `contacto_id` int(10) NOT NULL,
+  `contacto_nombre` varchar(250) NOT NULL DEFAULT '',
+  `contacto_telefono` varchar(250) NOT NULL DEFAULT '',
+  `contacto_email` varchar(250) NOT NULL DEFAULT '',
+  `contacto_mensaje` text NOT NULL,
+  `contacto_contestado` varchar(10) NOT NULL DEFAULT '0',
+  `contacto_notas` text NOT NULL,
+  `form_type` varchar(30) NOT NULL,
+  `fecha_formulario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -125,6 +143,12 @@ INSERT INTO `usuarios` (`user_id`, `user_usuario`, `user_password`, `user_nombre
 --
 
 --
+-- Indices de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  ADD PRIMARY KEY (`contacto_id`);
+
+--
 -- Indices de la tabla `medios`
 --
 ALTER TABLE `medios`
@@ -160,6 +184,11 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  MODIFY `contacto_id` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `medios`
 --
