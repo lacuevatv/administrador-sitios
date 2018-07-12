@@ -230,12 +230,24 @@ $(document).ready(function(){
 					response = $.parseJSON(response);
 					
 					if (response.length == 2) {
-						var html = '<input type="hidden" class="previewAtachment" name="previewAtachment" value="'+response[0]+'"><img class="preview-image img-responsive" src="'+uploadsDir+'/'+response[0]+'"><p><a href="" class="preview-file"></a></p>';
+						//url de imagen por defecto
+						var previewHtml = uploadsDir+'/'+response[0];
+						if ( is_file(response[0]) ) {
+							//si es un archivo en vez de mostrar la imagen subida mostramos un icono:
+							previewHtml = administradorUrl+'/assets/images/icon-file.png';
+						}
+						var html = '<input type="hidden" class="previewAtachment" name="previewAtachment" value="'+response[0]+'"><img class="preview-image img-responsive" src="'+previewHtml+'"><p><a href="" class="preview-file"></a></p>';
 						var node = $(html);
 						$('.preview-wrapper').append(node);
 					} else {
 						for (var i = 0; i < response.length; i+=2) {
-							var html = '<input type="hidden" class="previewAtachment" name="previewAtachment" value="'+response[i]+'"><img class="preview-image img-responsive" src="'+uploadsDir+'/'+response[i]+'"><p><a href="" class="preview-file"></a></p>';
+							//url de imagen por defecto
+							var previewHtml = uploadsDir+'/'+response[i];
+							if ( is_file(response[i]) ) {
+								//si es un archivo en vez de mostrar la imagen subida mostramos un icono:
+								previewHtml = administradorUrl+'/assets/images/icon-file.png';
+							}
+							var html = '<input type="hidden" class="previewAtachment" name="previewAtachment" value="'+response[i]+'"><img class="preview-image img-responsive" src="'+previewHtml+'"><p><a href="" class="preview-file"></a></p>';
 							var node = $(html);
 							$('.preview-wrapper').append(node);
 						}
@@ -252,6 +264,17 @@ $(document).ready(function(){
 		});//cierre ajax
 	});//submit
 });//ready
+
+function is_file(file) {
+	var myArraySplit = file.split('.');
+	var ext = myArraySplit[myArraySplit.length-1];
+	
+	if ( ext != 'jpg' && ext != 'gif' && ext != 'png' && ext != 'jpeg' ) {
+		return true;
+	} else {
+		return false;	
+	}
+}
 
 function checkPostType( nameFile, postType ) {
 	
