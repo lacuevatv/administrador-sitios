@@ -21,9 +21,9 @@ load_module( 'contactos' );
 			  <button id="export_excel" type="button" class="btn btn-default">
 			  	Exportar a Excel
 			  </button>
-			  <button id="new-suscriptor" type="button" class="btn btn-primary">
+			  <!--<button id="new-suscriptor" type="button" class="btn btn-primary">
 			  	Nuevo Suscriptor
-			  </button>
+			  </button>-->
 			  
 			</div>
 			<table class="tabla-suscriptores" width="100%">
@@ -32,7 +32,7 @@ load_module( 'contactos' );
 						<td width="5%">
 							Id:
 						</td>
-						<td width="10%">
+						<td width="20%">
 							email:
 						</td>
 						<td width="10%">
@@ -44,16 +44,7 @@ load_module( 'contactos' );
 						<td width="35%">
 							Mensaje
 						</td>
-						<td width="5%">
-							Cargo
-						</td>
-						<td width="5%">
-							Fecha de viaje:
-						</td>
-                        <td width="5%">
-							Cantidad de Alumnos:
-						</td>
-                        <td width="5%">
+                        <td width="15%">
 							Fecha de envío:
 						</td>
 						<td width="5%">
@@ -63,44 +54,36 @@ load_module( 'contactos' );
 				</thead>
 				<tbody>
 					<?php 
-					for ($i=0; $i < count($suscriptores); $i++) { 
-						?>
-					<tr>
-						<td>
-							<?php echo $suscriptores[$i]['id']; ?>
-						</td>
-						<td>
-							<?php echo $suscriptores[$i]['email']; ?>
-						</td>
-						<td>
-							<?php echo utf8_decode($suscriptores[$i]['nombre']); ?>
-						</td>
-						<td>
-                            <?php echo $suscriptores[$i]['telefono']; ?>
-						</td>
-						<td class="font-reduce">
-                            <?php echo utf8_decode($suscriptores[$i]['mensaje']); ?>
-						</td>
-                        <td>
-                            <?php echo $suscriptores[$i]['cargo']; ?>
-						</td>
-                        <td>
-                            <?php echo $suscriptores[$i]['fecha_viaje']; ?>
-						</td>
-                        <td>
-                            <?php echo $suscriptores[$i]['cant_alumnos']; ?>
-						</td>
-						<td>
-							<?php echo date('d.m.y' ,strtotime($suscriptores[$i]['fecha_de_envio']) ); ?>
-						</td>
-						<td>
-							<button title="Borrar suscriptor" class="del-user" data-id="<?php echo $suscriptores[$i]['id']; ?>">
-								<img src="<?php echo URLADMINISTRADOR; ?>/assets/images/delbtn.png" alt="Borrar usuario">
-							</button>
-						</td>
-					</tr>
-						<?php 
-					}
+					if ( $suscriptores != null ) :
+						for ($i=0; $i < count($suscriptores); $i++) { 
+							?>
+						<tr>
+							<td>
+								<?php echo $suscriptores[$i]['contacto_id']; ?>
+							</td>
+							<td>
+								<?php echo $suscriptores[$i]['contacto_email']; ?>
+							</td>
+							<td>
+								<?php echo utf8_decode($suscriptores[$i]['contacto_nombre']); ?>
+							</td>
+							<td>
+	                            <?php echo $suscriptores[$i]['contacto_telefono']; ?>
+							</td>
+							<td class="font-reduce">
+	                            <?php echo utf8_decode($suscriptores[$i]['contacto_mensaje']); ?>
+							<td>
+								<?php echo date('d.m.y' ,strtotime($suscriptores[$i]['contacto_fecha_formulario']) ); ?>
+							</td>
+							<td>
+								<button title="Borrar suscriptor" class="del-user" data-id="<?php echo $suscriptores[$i]['id']; ?>">
+									<img src="<?php echo URLADMINISTRADOR; ?>/assets/images/delbtn.png" alt="Borrar usuario">
+								</button>
+							</td>
+						</tr>
+							<?php 
+						}
+					endif;
 					?>
 				</tbody>
 			</table>
