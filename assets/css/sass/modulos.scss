@@ -212,3 +212,33 @@
 		margin: 0 auto;
 	}
 }
+
+/*
+*categorias
+*/
+
+.tabla-categorias {
+  width: 90%;
+  border: 1px solid #999;
+  margin: 40px auto 80px;
+
+  tr {
+    border: 1px solid black;
+  }
+
+  td {
+    padding: 5px;
+  }
+
+  thead {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+.error-msj {
+  color: red;
+  font-style: italic;
+  font-size: 80%;
+  display: block;
+}

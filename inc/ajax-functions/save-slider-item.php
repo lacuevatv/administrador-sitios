@@ -1,6 +1,5 @@
 <?php
 /*
- * delete slider
  * Since 3.0
  * borra el slider seleccionado
 */

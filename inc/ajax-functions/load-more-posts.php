@@ -6,6 +6,7 @@
  * Carga más post
 */
 require_once('../functions.php');
+//require_once('../modulos/modulo-acciones.php');
 load_module( 'posts' );
 if ( isAjax() ) {
     
@@ -13,9 +14,10 @@ if ( isAjax() ) {
     $categoria = isset( $_POST['categoria'] ) ? $_POST['categoria'] : '';
     $postType = isset( $_POST['post_type'] ) ? $_POST['post_type'] : 'post';
 
-    $limit = POSTPERPAG;
+    $limit = ( ($pageActual )*POSTPERPAG).", ".POSTPERPAG;
 
     $posts = getPosts( $postType, $limit, $categoria, 'fecha', 'all' );
+
         
     if ( $posts != null ) {
         for ($i=0; $i < count($posts); $i++) { 

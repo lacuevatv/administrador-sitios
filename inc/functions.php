@@ -5,7 +5,7 @@
  * Pagina de funciones
 */
 
-require_once('config.php');
+require_once('config-admin.php');
 
 /*
  * Funciones sin base de datos
@@ -52,53 +52,14 @@ function get_footer_scripts ($modulo) { ?>
 	<!------- admin scripts ------>
 	<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/admin-script.js"></script>
 	<!------- scripts modulos ------>
-	<?php 
-	switch ( $modulo ) {
-		case 'noticias':
-		case 'editar-noticias': ?>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/lib/tinymce/tinymce.min.js"></script>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-noticias.js"></script>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
-			
-			<?php break;
-		
-		case 'galeria-imagenes': ?>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
-			<?php break;
-
-		case 'contacts': ?>
-		<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-contacts.js"></script>
-		<?php break;
-
-		case 'biblioteca-medios': ?>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
-			<?php break;
-		
-		case 'archivos-descargas' :
-		case 'info-adicional': ?>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-otros-opciones.js"></script>
-			<?php break;
-
-		case 'sliders' :
-		case 'editar-slider' : ?>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-sliders.js"></script>
-			<?php break;
-
-		case 'promociones' : ?>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-promociones.js"></script>
-			<?php break;
-		
-		default: ?>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/lib/tinymce/tinymce.min.js"></script>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-noticias.js"></script>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
-			<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-sliders.js"></script>
-			<?php break;
-	}
-	?>
+	<script src="<?php echo URLADMINISTRADOR; ?>/assets/lib/tinymce/tinymce.min.js"></script>
+	<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-medios.js"></script>
+	<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-posts.js"></script>
+	<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-sliders.js"></script>
+	<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-contacts.js"></script>
+	<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-otros-opciones.js"></script>
+	<script src="<?php echo URLADMINISTRADOR; ?>/assets/js/modulo-promociones.js"></script>
+	
 <?php }
 
 /*
@@ -147,4 +108,28 @@ function getUsers() {
 		}
 
 	return $users;
+}
+
+/*
+ * TRAE LA LISTA DE CATEGORIAS
+*/
+function getCategoryList($categoryType) {
+	$connection = connectDB();
+	$tabla = 'categorias';
+	$query  = "SELECT * FROM " . $tabla . " WHERE categoria_tipo ='".$categoryType."'";
+
+	$result = mysqli_query($connection, $query);
+	if ( $result->num_rows == 0 ) {
+		$categorias = null;
+
+	} else {
+	while ( $categoria = $result->fetch_array() ) {
+			$categorias[] = $categoria;
+		}
+
+	}
+
+	closeDataBase($connection);
+
+	return $categorias;
 }

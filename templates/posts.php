@@ -10,7 +10,7 @@ $posts = getPosts( 'post', POSTPERPAG, '', 'fecha', 'all' );
 <!---------- noticias ---------------->
 <div class="contenido-modulo">
 	<h1 class="titulo-modulo">
-		Ver Accciones
+		Ver Posts
 	</h1>
 	<div class="container">
 		<div class="row">
@@ -20,11 +20,11 @@ $posts = getPosts( 'post', POSTPERPAG, '', 'fecha', 'all' );
 					<select name="post_categoria" id="post_categoria">
 						<option value="todas">Todas</option>
 						<?php 
-							$categorias = getPosts( 'categoria-post' );
+							$categorias = getCategoryList( 'posts' );
 							if ( $categorias!=null ) :
 
 								for ($i=0; $i < count($categorias); $i++) { 
-									echo '<option value="'.$categorias[$i]['post_ID'].'">'.$categorias[$i]['post_titulo'].'</option>';
+									echo '<option value="'.$categorias[$i]['categoria_slug'].'">'.$categorias[$i]['categoria_nombre'].'</option>';
 								}
 
 							endif;
@@ -62,7 +62,7 @@ $posts = getPosts( 'post', POSTPERPAG, '', 'fecha', 'all' );
 <!-- botones del modulo -->
 <footer class="footer-modulo container">
     <a type="button" href="index.php" class="btn">Volver al inicio</a>
-    <a type="button" href="index.php?admin=editar-acciones" class="btn">Agregar nueva</a>
+    <a type="button" href="index.php?admin=editar-post" class="btn">Agregar nueva</a>
 </footer>
 
 <!---------- fin noticias ---------------->

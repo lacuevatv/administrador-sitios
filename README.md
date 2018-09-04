@@ -11,6 +11,11 @@ Además, permite manejar cargar y subir imagenes y archivos y manejar sliders.
 * Base de datos básica con un usuario: coco@lacueva.tv / password
 
 ## Versiones
+* 6.5.0 - 4.9.18
+- Agregué modulo categorias dinámicas
+- Cambié noticias, por posts para hacerlo más universal
+- Cambié las funciones para listar posts
+- Cree en config una variable global con el menú para el inicio, pero el header continua siendo manual
 
 * 6.2.0 - 22/05/18  
 - agregue el modulo de galeria de imágenes, lista categorias que están en el archivo config

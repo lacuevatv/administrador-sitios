@@ -17,7 +17,7 @@
 
 //urls:
 var baseUrl = 'http://' + window.location.host;
-var administradorUrl = baseUrl + '/administrador-sitios';
+var administradorUrl = baseUrl + '/administrador';
 var uploadsDir = baseUrl + '/contenido';
 var functionsDir = administradorUrl + '/inc';
 var templatesDir = administradorUrl + '/templates';
@@ -115,6 +115,7 @@ $(document).ready(function (){
 			url: functionsDir + '/sesion.php',
 			data: data,
 			success: function ( response ) {
+				
 				if ( response == 1 ) {
 					window.setTimeout('location.reload()', 1000);
 				} else {
@@ -322,4 +323,130 @@ $(document).ready(function() {
 			});//cierre ajax
 		});//submit
 
+})//ready
+
+
+/*
+* MODIFICAR CATEGORIAS
+*/
+$(document).ready(function() {
+
+	var inputNombreCategoria = $('input[name="nombre_nueva_categoria"]');
+
+	if ( inputNombreCategoria.length != 0 ) {
+		//coloca un url automáticamente
+		$(inputNombreCategoria).focusout(function(){
+			//primero chequea que no tenga ya un url, si lo tiene se anula
+			var titulo = $(this).val();
+			var url = $('input[name="slug_nueva_categoria"]');
+
+			if (url.val() == '') {
+				
+				var newTitulo = getCleanedString(titulo);
+				url.val(newTitulo);
+			}
+		});
+	}
+	
+
+	//agregar nueva
+	$(document).on('submit', '#nueva-categoria-form', function(e){
+		
+		e.preventDefault();
+
+		var url = $('input[name="slug_nueva_categoria"]');
+		if (url.val() == '') {
+			var titulo = $('input[name="nombre_nueva_categoria"]').val();
+			var newTitulo = getCleanedString(titulo);
+			url.val(newTitulo);
+		} else {
+			var newURL = $(url).val();
+			newURL = getCleanedString(newURL);
+			$(url).val(newURL);
+		}
+		
+		
+		var tipoCategoria = $('select[name="tipo_nueva_categoria"]').val();
+		var contenedor = $('.categorias-'+tipoCategoria);
+		
+		var error = $(this).find('.error-msj');
+
+		$('input[name="slug_nueva_categoria"]')
+
+		var formulario = $( this );
+		var formData = new FormData( formulario[0] );
+
+		$.ajax( {
+			type: 'POST',
+			url: ajaxFunctionDir + '/nueva-categoria.php',
+			data: formData,
+			cache: false,
+		    contentType: false,
+		    processData: false,
+			success: function ( response ) {
+				//console.log(response);
+				if (response == 'error') {
+					error.text('Hubo un error');
+				} else {
+					contenedor.append(response);
+				}
+				
+			},
+			error: function ( error ) {
+				console.log(error);
+			},
+		});//cierre ajax
+
+	});
+	//borrar
+	$(document).on('click', '.btn-del-category', function(e){
+		var id = $(this).attr('data-id');
+		var tr = $(this).closest('tr');
+		var td = $(this).closest('td');
+		var tr = $(td).closest('tr');
+		var error = $(td).find('.error-msj');
+		$.ajax( {
+			type: 'POST',
+			url: ajaxFunctionDir + '/borrar-categoria.php',
+			data: {
+				id: id,
+			},
+			success: function ( response ) {
+				console.log(response);
+				if ( response == 'ok') {
+					$(tr).remove();
+				} else {
+					$(error).text(response);
+				}
+			},
+			error: function ( error ) {
+				console.log(error);
+			},
+		});//cierre ajax
+	});
+	//guardar
+	$(document).on('click', '.btn-change-category', function(e){
+		var id = $(this).attr('data-id');
+		var td = $(this).closest('td');
+		var error = $(td).find('.error-msj');
+		var tr = $(td).closest('tr');
+		var nombre = $(tr).find('input[name="categoria_name"]').val();
+
+		$.ajax( {
+			type: 'POST',
+			url: ajaxFunctionDir + '/update-categoria.php',
+			data: {
+				id: id,
+				nombre: nombre,
+			},
+			success: function ( response ) {
+				console.log(response);
+				
+				$(error).text(response);
+			},
+			error: function ( error ) {
+				console.log(error);
+			},
+		});//cierre ajax
+	});	
 })//ready

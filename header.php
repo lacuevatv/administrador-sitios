@@ -50,13 +50,13 @@ if(!defined("SECUREACCESS"))
               <a href="index.php?admin=contacts" role="button">Contactos</a>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Noticias<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Posts<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="index.php?admin=editar-noticias" role="button">Agregar nueva</a>
+                  <a href="index.php?admin=editar-post" role="button">Agregar nuevo</a>
                   </li>
                 <li>
-                  <a href="index.php?admin=noticias" role="button">Ver todas</a>
+                  <a href="index.php?admin=posts" role="button">Ver lista</a>
                 </li>
               </ul>
             </li>
@@ -76,13 +76,16 @@ if(!defined("SECUREACCESS"))
                   <a href="index.php?admin=galeria-imagenes" role="button">Galerías de imágenes</a>
                 </li>
                 <li>
-                  <a href="index.php?admin=promociones" role="button">promociones</a>
+                  <a href="index.php?admin=promociones" role="button">Popups</a>
                 </li>
                 <li>
                   <a href="index.php?admin=editar-slider&slug=home" role="button">Slider Inicio</a>
                 </li>
                 <li>
                   <a href="index.php?admin=biblioteca-medios" role="button">Medios</a>
+                </li>
+                <li>
+                  <a href="index.php?admin=categorias" role="button">Categorias</a>
                 </li>
               </ul>
             </li>

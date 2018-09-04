@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 23-05-2018 a las 13:28:03
--- Versión del servidor: 5.6.30
--- Versión de PHP: 5.6.36-1+ubuntu16.04.1+deb.sury.org+1
+-- Tiempo de generación: 04-09-2018 a las 12:16:51
+-- Versión del servidor: 5.7.23-0ubuntu0.16.04.1
+-- Versión de PHP: 5.6.37-1+ubuntu16.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `administrador`
+-- Base de datos: `somosre_bd`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `categoria_id` int(11) NOT NULL,
+  `categoria_slug` varchar(250) NOT NULL DEFAULT '',
+  `categoria_nombre` varchar(250) NOT NULL DEFAULT '',
+  `categoria_tipo` varchar(250) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`categoria_id`, `categoria_slug`, `categoria_nombre`, `categoria_tipo`) VALUES
+(1, 'novedades', 'Novedades', 'posts');
 
 -- --------------------------------------------------------
 
@@ -85,7 +105,6 @@ INSERT INTO `options` (`OPTIONS_ID`, `options_name`, `options_value`, `options_n
 CREATE TABLE `posts` (
   `post_ID` int(20) UNSIGNED NOT NULL,
   `post_autor` int(20) UNSIGNED NOT NULL DEFAULT '1',
-  `post_fecha` date NOT NULL,
   `post_titulo` varchar(200) NOT NULL,
   `post_url` varchar(200) NOT NULL DEFAULT '',
   `post_contenido` longtext NOT NULL,
@@ -95,7 +114,10 @@ CREATE TABLE `posts` (
   `post_categoria` varchar(200) NOT NULL,
   `post_galeria` varchar(20) NOT NULL DEFAULT '0',
   `post_imagenesGal` longtext NOT NULL,
-  `post_status` varchar(50) NOT NULL,
+  `post_head` text NOT NULL,
+  `post_status` varchar(50) NOT NULL DEFAULT 'publicado',
+  `post_destacado` int(11) NOT NULL DEFAULT '0',
+  `post_orden` int(11) NOT NULL DEFAULT '0',
   `post_type` varchar(100) NOT NULL DEFAULT 'post',
   `post_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -143,6 +165,12 @@ INSERT INTO `usuarios` (`user_id`, `user_usuario`, `user_password`, `user_nombre
 --
 
 --
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`categoria_id`);
+
+--
 -- Indices de la tabla `contacto`
 --
 ALTER TABLE `contacto`
@@ -184,6 +212,11 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `contacto`
 --

@@ -1,7 +1,5 @@
 <?php
 /*
- * Noticias recientes
- * Lista las noticias publicadas y con links para verlas, editarlas o publicarlas
  * Since 3.0
  * 
 */
