@@ -33,7 +33,7 @@
                 <a href="<?php echo $url; ?>" title="Editar" class="btn-edit-news">
                     Editar
                 </a>
-                <!--|DEBERIA CAMBIAR EL URL CUANDO ESTE LISTO <a href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] .'/noticias/'. $data['post_url']; ?>" target="_blank" title="Ver">Ver</a>-->
+                <!--|DEBERIA CAMBIAR EL URL CUANDO ESTE LISTO <a href="<?php echo MAINURL .'/noticias/'. $data['post_url']; ?>" target="_blank" title="Ver">Ver</a>-->
                 | <a href="<?php echo $data['post_ID']; ?>" class="btn-delete-post">Borrar</a>
             </p>
             
